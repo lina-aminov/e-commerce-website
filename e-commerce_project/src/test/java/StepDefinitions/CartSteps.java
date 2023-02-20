@@ -8,7 +8,7 @@ import org.openqa.selenium.By;
 
 import static StepDefinitions.Hooks.driver;
 
-public class RemoveFromCartSteps {
+public class CartSteps {
 
     @Given("I have an item in the cart")
     public void iHaveAnItemInTheCart() {
