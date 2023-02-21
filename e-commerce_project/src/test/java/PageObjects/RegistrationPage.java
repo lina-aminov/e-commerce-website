@@ -32,8 +32,6 @@ public class RegistrationPage extends BasePage {
         }
     }
 
-
-
     public void clickSaveButton() {
         WebElement saveButton = driver.findElement(By.cssSelector(".form-control-submit"));
         saveButton.click();
