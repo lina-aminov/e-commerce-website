@@ -16,6 +16,7 @@ public class RegistrationStepDef {
 
     public RegistrationStepDef() {
         homePage = new HomePage(driver);
+        registrationPage = new RegistrationPage(driver);
     }
 
     @When("I click Sign In button")
@@ -41,6 +42,6 @@ public class RegistrationStepDef {
 
     @Then("I am redirected to the home page with the name: {string} visible")
     public void iAmRedirectedToTheHomePageWithTheNameVisible(String fullName) {
-        // assert fullName.equals(loginPage.getFullName());
+         assert fullName.equals(registrationPage.getFullName());
     }
 }
