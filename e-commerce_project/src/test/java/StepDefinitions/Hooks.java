@@ -33,7 +33,7 @@ public class Hooks {
     @AfterAll
     public static void afterAll(){
         System.out.println("I am an after all");
-//        driver.quit();
+        driver.quit();
         driver = null;
     }
 }
