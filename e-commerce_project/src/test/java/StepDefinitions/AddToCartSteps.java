@@ -6,7 +6,7 @@ import io.cucumber.java.en.Given;
 
 import static StepDefinitions.Hooks.driver;
 
-public class ExampleSteps {
+public class AddToCartSteps {
 
     HomePage homePage;
 
