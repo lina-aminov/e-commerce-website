@@ -19,7 +19,6 @@ public class AddToCartSteps {
     @Given("I'm on the home Page")
     public void iMOnTheHomePage() {
         homePage.goToHomePage();
-
     }
 
     @When("I click on a product")
@@ -31,12 +30,6 @@ public class AddToCartSteps {
     public void iAddAProductToCart() {
         homePage.addToCart();
     }
-
-//    @And("I the see message Product successfully added to your shopping cart")
-//    public void successfullyAddedMessage() {
-//        homePage.productAddedConfirmation();
-//
-//    }
 
     @And("I click proceed to checkout")
     public void clickProceedToCheckout() {
