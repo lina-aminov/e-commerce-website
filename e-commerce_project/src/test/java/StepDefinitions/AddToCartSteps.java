@@ -32,11 +32,11 @@ public class AddToCartSteps {
         homePage.addToCart();
     }
 
-//    @And("I the see message Product successfully added to your shopping cart")
-//    public void successfullyAddedMessage() {
-//        homePage.productAddedConfirmation();
-//
-//    }
+    @And("I the see message Product successfully added to your shopping cart")
+    public void successfullyAddedMessage() {
+        homePage.productAddedConfirmation();
+
+    }
 
     @And("I click proceed to checkout")
     public void clickProceedToCheckout() {
