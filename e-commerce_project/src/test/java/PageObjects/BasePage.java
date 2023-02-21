@@ -3,6 +3,7 @@ package PageObjects;
 import io.cucumber.core.internal.com.fasterxml.jackson.databind.ser.Serializers;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -19,7 +20,10 @@ abstract class BasePage {
 
     public void waitAndClick(By selector) {
         wait.until(ExpectedConditions.elementToBeClickable(selector)).click();
-
-
     }
+    public WebElement waitUntilVisible(By selector) {
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(selector));
+    }
+
+
 }
