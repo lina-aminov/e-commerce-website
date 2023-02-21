@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 
 import static org.junit.Assert.assertTrue;
 
-public class HomePage extends BasePage{
+public class HomePage extends BasePage {
 
     private By PRODUCT_ADDED_CONFIRMATION = By.xpath("//h4[contains(text(), 'Product successfully added to your shopping cart')]");
     private By ADD_TO_CART = By.xpath("//button[@class='btn btn-primary add-to-cart']");
@@ -14,11 +14,12 @@ public class HomePage extends BasePage{
     private By CHECKOUT_BUTTON = By.cssSelector("div.cart-content-btn a.btn-primary");
 
     private By BLOUSE_LINK = By.xpath("//a[contains(@href, 'rewrite=blouse')]");
+
     public HomePage(WebDriver driver) {
         super(driver);
     }
 
-    public void goToHomePage(){
+    public void goToHomePage() {
         driver.get("http://3.11.77.136/index.php");
     }
 
@@ -37,6 +38,7 @@ public class HomePage extends BasePage{
         assertTrue(addedConfirmation.isDisplayed());
 
     }
+
     public void clickProceedToCheckout() {
         waitAndClick(CHECKOUT_BUTTON);
     }
@@ -48,6 +50,14 @@ public class HomePage extends BasePage{
     }
 
 
+    public void clickSignIn() {
+        WebElement signInButton = driver.findElement(By.xpath("//div[@class='user-info']/a"));
+        signInButton.click();
+    }
 
-
+    public void clickSignUpLink() {
+        WebElement signUpLink = driver.findElement(By.xpath("//a[contains(@href,'authentication')]"));
+        signUpLink.click();
+    }
+    
 }

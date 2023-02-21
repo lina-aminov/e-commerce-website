@@ -32,7 +32,6 @@ public class AddToCartSteps {
         homePage.addToCart();
     }
 
-
     @And("I click proceed to checkout")
     public void clickProceedToCheckout() {
         homePage.clickProceedToCheckout();
