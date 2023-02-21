@@ -50,4 +50,14 @@ public class HomePage extends BasePage {
     }
 
 
+    public void clickSignIn() {
+        WebElement signInButton = driver.findElement(By.xpath("//div[@class='user-info']/a"));
+        signInButton.click();
+    }
+
+    public void clickSignUpLink() {
+        WebElement signUpLink = driver.findElement(By.xpath("//a[contains(@href,'authentication')]"));
+        signUpLink.click();
+    }
+    
 }
