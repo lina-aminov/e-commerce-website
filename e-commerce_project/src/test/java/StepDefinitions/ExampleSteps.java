@@ -1,9 +1,7 @@
 package StepDefinitions;
 
-
 import PageObjects.HomePage;
 import io.cucumber.java.en.Given;
-
 
 
 import static StepDefinitions.Hooks.driver;
@@ -11,7 +9,6 @@ import static StepDefinitions.Hooks.driver;
 public class ExampleSteps {
 
     HomePage homePage;
-
 
     public ExampleSteps() {
         homePage = new HomePage(driver);
@@ -22,6 +19,5 @@ public class ExampleSteps {
         homePage.goToHomePage();
 
     }
-
 
 }
