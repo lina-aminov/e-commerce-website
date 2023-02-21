@@ -59,4 +59,5 @@ public class HomePage extends BasePage {
         WebElement signUpLink = driver.findElement(By.xpath("//a[contains(@href,'authentication')]"));
         signUpLink.click();
     }
+    
 }
