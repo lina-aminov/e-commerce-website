@@ -18,8 +18,6 @@ Feature: Cart functionality (UI)
     Then I see the changed 7 items quantity
 
 
-
-
   Scenario Outline: I am adding different quantity values in the input cart
     When I am adding manually <num> items into the cart
     Then I see the changed <num> items quantity
