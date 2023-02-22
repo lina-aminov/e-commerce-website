@@ -2,8 +2,7 @@ package PageObjects;
 
 
 import org.openqa.selenium.By;
-import io.cucumber.core.internal.com.fasterxml.jackson.databind.ser.Serializers;
-import org.openqa.selenium.By;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -43,5 +42,8 @@ abstract class BasePage {
         int range = max - min + 1;
         return (int) (Math.random() * range) + min;
     }
-
+    void findAndType(By elementSelector, String inputString) {
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(elementSelector));
+        element.sendKeys(inputString);
+    }
 }

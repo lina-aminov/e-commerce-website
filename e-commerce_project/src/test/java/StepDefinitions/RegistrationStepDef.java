@@ -1,11 +1,13 @@
 package StepDefinitions;
 
 import PageObjects.HomePage;
+import PageObjects.LoginPage;
 import PageObjects.RegistrationPage;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 
 import static StepDefinitions.Hooks.driver;
 
@@ -13,10 +15,12 @@ public class RegistrationStepDef {
 
     HomePage homePage;
     RegistrationPage registrationPage;
+    LoginPage loginPage;
 
     public RegistrationStepDef() {
         homePage = new HomePage(driver);
         registrationPage = new RegistrationPage(driver);
+        loginPage = new LoginPage(driver);
     }
 
     @When("I click Sign In button")
@@ -27,7 +31,7 @@ public class RegistrationStepDef {
 
     @And("I click the sign up link")
     public void iClickSignUpLink() {
-        homePage.clickSignUpLink();
+        loginPage.clickSignUpLink();
     }
 
     @When("I fill in the account details with the following:")
@@ -44,4 +48,21 @@ public class RegistrationStepDef {
     public void iAmRedirectedToTheHomePageWithTheNameVisible(String fullName) {
          assert fullName.equals(registrationPage.getFullName());
     }
+
+    @Then("I am see the error message {string}")
+    public void invalidName(String invalidName) {
+        Assert.assertEquals(invalidName, registrationPage.getInvalidNameMessage());
+
+    }
+
+    @Then("the error message {string} is visible")
+    public void invalidEmailFormat(String invalidEmailFormat) {
+        Assert.assertEquals(invalidEmailFormat, registrationPage.getInvalidFormatMessage());
+    }
+
+    @Then("the error message {string} becomes visible")
+    public void emailIsAlreadyInUse(String alreadyRegisteredEmail) {
+        Assert.assertEquals(alreadyRegisteredEmail, registrationPage.getAlreadyRegisteredMessage());
+    }
+
 }
