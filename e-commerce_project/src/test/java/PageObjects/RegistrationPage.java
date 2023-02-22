@@ -2,6 +2,8 @@ package PageObjects;
 
 
 import io.cucumber.datatable.DataTable;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,6 +12,7 @@ import java.util.Map;
 
 
 public class RegistrationPage extends BasePage {
+    private static final Logger logger = LogManager.getLogger(RegistrationPage.class);
 
     public RegistrationPage(WebDriver driver) {
         super(driver);
@@ -23,6 +26,7 @@ public class RegistrationPage extends BasePage {
 
 
     public void enterAccountDetails(DataTable accountDetails) {
+        logger.info("Enter account details");
         Map<String, String> accountDetailsMap = accountDetails.asMap();
         for (Map.Entry<String, String> entry : accountDetailsMap.entrySet()) {
             if (entry.getKey().equals("Social title")) {
@@ -36,6 +40,7 @@ public class RegistrationPage extends BasePage {
     }
 
     public void clickSaveButton() {
+        logger.info("Click save button");
         WebElement saveButton = driver.findElement(By.cssSelector(".form-control-submit"));
         saveButton.click();
     }

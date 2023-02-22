@@ -1,5 +1,7 @@
 package PageObjects;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
@@ -11,7 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import static org.junit.Assert.assertTrue;
 
 public class CartPage extends BasePage {
-
+    private static final Logger logger = LogManager.getLogger(CartPage.class);
 
     private static final By DELETE_ITEM_BTN = By.cssSelector("a.remove-from-cart");
     private static final By NO_ITEM_MSG = By.cssSelector("span.no-items");
@@ -26,15 +28,18 @@ public class CartPage extends BasePage {
     }
 
     public void checkEmptyCartMSG(String message) {
+        logger.info("Check empty cart");
         Assertions.assertEquals(message, waitUntilVisible(NO_ITEM_MSG).getText());
     }
 
     public void clickDeleteItemBtn() {
+        logger.info("Click delete items");
         driver.findElement(DELETE_ITEM_BTN).click();
 
     }
 
     public void clickChangeQuantity(int quantity) {
+        logger.info("Click change quantity");
         for (int i = 1; i <= quantity; i++){
             //click the button
           waitAndClickForStale(QUANTITY_ITEM_UP);
@@ -45,6 +50,7 @@ public class CartPage extends BasePage {
 
 
     public void clickOnDownButton(int quantity) {
+        logger.info("Click on down button");
         for (int i = 0; i <= 1; i++) {
             //click the button
            driver.findElement(QUANTITY_ITEM_DOWN);
@@ -53,11 +59,13 @@ public class CartPage extends BasePage {
     }
 
     public void checkItemQuantity(int quantity) {
+        logger.info("Click item quantity");
         String quantityField = driver.findElement(QUANTITY_FIELD).getAttribute("value");
         Assertions.assertEquals(Integer.toString(quantity), quantityField);
     }
 
     public void addManuallyQuantity(int num) {
+        logger.info("Add manually quantity");
         WebElement element = driver.findElement(QUANTITY_FIELD);
         element.sendKeys(Keys.HOME, Keys.chord(Keys.SHIFT, Keys.END), Integer.toString(num));
         //quantity field requires clicking off-input

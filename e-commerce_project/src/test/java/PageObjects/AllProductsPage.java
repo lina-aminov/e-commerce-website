@@ -1,6 +1,8 @@
 package PageObjects;
 
 import io.cucumber.datatable.DataTable;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 public class AllProductsPage extends BasePage {
+    private static final Logger logger = LogManager.getLogger(AllProductsPage.class);
 
     private static final By ALL_PRODUCTS_BTN = By.xpath("//a[contains(@href,'category=2&controller=category')]");
     private static final By FILTER_TAGS_SECTION = By.xpath("//section[@id='js-active-search-filters']/ul");
@@ -26,6 +29,7 @@ public class AllProductsPage extends BasePage {
     }
 
     public void selectFilter(String key, String value) {
+        logger.info("Select filter");
         WebElement filter = driver.findElement(By.xpath("//h1[text()='" + key + "']/parent::section//li//a[contains(text(),'" + value + "')]"));
         filter.click();
         waitUntilStale(filter);
@@ -33,8 +37,8 @@ public class AllProductsPage extends BasePage {
 
 
     public void chooseFilters(DataTable filters) {
+        logger.info("Map filters");
         Map<String, String> filtersMap = filters.asMap();
-
         for (Map.Entry<String, String> entry : filtersMap.entrySet()) {
             selectFilter(entry.getKey(), entry.getValue());
             expectedFilters.add(entry.getKey() + ": " + entry.getValue() + "\n" +
@@ -44,7 +48,7 @@ public class AllProductsPage extends BasePage {
     }
 
     public void checkFiltersDisplayed() {
-
+        logger.info("Filter display");
         WebElement liElements =  waitUntilVisible(FILTER_TAGS_SECTION);
         List<WebElement> ListFilters = liElements.findElements(By.tagName("li"));
         for(WebElement element : ListFilters){

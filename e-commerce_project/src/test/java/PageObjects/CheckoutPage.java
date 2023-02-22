@@ -1,11 +1,12 @@
 package PageObjects;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 
 public class CheckoutPage extends BasePage {
+    private static final Logger logger = LogManager.getLogger(CheckoutPage.class);
 
     private static By firstnameLocator = By.cssSelector("input[name=firstname]");
     private static By lastnameLocator = By.cssSelector("input[name=lastname]");
@@ -15,7 +16,6 @@ public class CheckoutPage extends BasePage {
     private static By zipcodeLocator = By.cssSelector("input[name=postcode]");
 
 
-
     public CheckoutPage(WebDriver driver) {
         super(driver);
 
@@ -23,40 +23,46 @@ public class CheckoutPage extends BasePage {
     }
 
 
-    public void enterfirstname(String firstname) {
+    public void enterFirstName(String firstname) {
+        logger.info("First name entered");
 
         driver.findElement(firstnameLocator).sendKeys(firstname);
 
 
     }
-    public void enterlastname(String lastname) {
+
+    public void enterLastName(String lastname) {
+        logger.info("LastName entered");
 
         driver.findElement(lastnameLocator).sendKeys(lastname);
 
 
     }
-    public void enteremail(String email) {
+
+    public void enterEmail(String email) {
+        logger.info("Email entered");
 
         driver.findElement(emailLocator).sendKeys(email);
 
 
     }
-    public void enteraddress(String address) {
 
+    public void enterAddress(String address) {
+        logger.info("Address entered");
         driver.findElement(addressLocator).sendKeys(address);
-
-
     }
-    public void entercity(String city) {
 
+    public void enterCity(String city) {
+        logger.info("City entered");
         driver.findElement(cityLocator).sendKeys(city);
 
 
     }
-    public void enterzipcode(String zipcode) {
+
+    public void enterZipCode(String zipcode) {
+        logger.info("ZipCode entered");
 
         driver.findElement(zipcodeLocator).sendKeys(zipcode);
-
 
     }
 }
