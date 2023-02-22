@@ -1,7 +1,6 @@
 package StepDefinitions;
 
 import PageObjects.AllProductsPage;
-import PageObjects.CartPage;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -28,5 +27,6 @@ public class FiltersAndCategoriesSteps {
 
     @Then("the filters are applied")
     public void theFiltersAreApplied() {
+        allProductsPage.checkFiltersDisplayed();
     }
 }
