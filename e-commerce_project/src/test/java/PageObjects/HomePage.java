@@ -80,7 +80,7 @@ public class HomePage extends BasePage {
         Assertions.assertEquals(Integer.toString(product), element);
 
     }
-}
+
 
     public void clickSignIn() {
         WebElement signInButton = driver.findElement(By.xpath("//div[@class='user-info']/a"));
