@@ -52,20 +52,20 @@ public class CheckOutStepDefs {
 
     @And("I enter my personal details like firstname {string} lastname {string} email {string}")
     public void iEnterMyPersonalDetailsLikeFirstnameLastnameEmail(String firstname, String lastname, String email) {
-        checkoutPage.enterfirstname(firstname);
-        checkoutPage.enterlastname(lastname);
-        checkoutPage.enteremail(email);
+        checkoutPage.enterFirstName(firstname);
+        checkoutPage.enterLastName(lastname);
+        checkoutPage.enterEmail(email);
 
         driver.findElement(By.cssSelector("button[name=continue]")).click();
     }
 
     @And("I enter my address {string} city {string} zipcode {string}")
     public void iEnterMyAddressCityZipcode(String address, String city, String zipcode) {
-            checkoutPage.enteraddress(address);
-            checkoutPage.entercity(city);
+            checkoutPage.enterAddress(address);
+            checkoutPage.enterCity(city);
         Select drpState = new Select(driver.findElement(By.name("id_state")));
         drpState.selectByVisibleText("Delaware");
-            checkoutPage.enterzipcode(zipcode);
+            checkoutPage.enterZipCode(zipcode);
 
             driver.findElement(By.cssSelector("button[name=confirm-addresses]")).click();
         }
