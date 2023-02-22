@@ -1,63 +1,62 @@
 package PageObjects;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
-public class CheckoutPage extends HomePage{
+public class CheckoutPage extends BasePage {
+
+    private static By firstnameLocator = By.cssSelector("input[name=firstname]");
+    private static By lastnameLocator = By.cssSelector("input[name=lastname]");
+    private static By emailLocator = By.cssSelector("input[name=email]");
+    private static By addressLocator = By.cssSelector("input[name=address1]");
+    private static By cityLocator = By.cssSelector("input[name=city]");
+    private static By zipcodeLocator = By.cssSelector("input[name=postcode]");
+
+
+
     public CheckoutPage(WebDriver driver) {
         super(driver);
+
+
     }
 
-private WebElement type_firstname;
 
-    private WebElement type_lastname;
+    public void enterfirstname(String firstname) {
 
-    private WebElement type_email;
-
-    private WebElement type_dateofBirth;
-
-    private WebElement type_address;
-
-    private WebElement type_city;
-
-    private WebElement type_zipcode;
+        driver.findElement(firstnameLocator).sendKeys(firstname);
 
 
-    public void enter_firstname(String firstname) {
-        type_firstname.sendKeys(firstname);
     }
-    public void enter_lastname(String lastname) {
-        type_lastname.sendKeys(lastname);
+    public void enterlastname(String lastname) {
+
+        driver.findElement(lastnameLocator).sendKeys(lastname);
+
+
+    }
+    public void enteremail(String email) {
+
+        driver.findElement(emailLocator).sendKeys(email);
+
+
+    }
+    public void enteraddress(String address) {
+
+        driver.findElement(addressLocator).sendKeys(address);
+
+
+    }
+    public void entercity(String city) {
+
+        driver.findElement(cityLocator).sendKeys(city);
+
+
+    }
+    public void enterzipcode(String zipcode) {
+
+        driver.findElement(zipcodeLocator).sendKeys(zipcode);
+
+
+    }
 }
-    public void enter_email(String email) {
-        type_email.sendKeys(email);
-    }
-    public void enter_dateofBirth(String dateofBirth) {
-        type_dateofBirth.sendKeys(dateofBirth);
-    }
-
-    public void enter_address(String address) {
-        type_address.sendKeys(address);
-    }
-        public void enter_city(String city) {
-            type_city.sendKeys(city);
-        }
-    public void enter_zipcode(String zipcode) {
-        type_zipcode.sendKeys(zipcode);
-    }
-    public void fillDetails() {
-        enter_firstname("John");
-        enter_lastname("Smith");
-        enter_email("hello@username.co.uk");
-        enter_dateofBirth("11/04/1999");
-
-
-    }
-
-    public void fillDetailsAgain() {
-        enter_address("33 WWE Road");
-        enter_city("London");
-        enter_zipcode("SW12 4NQ");
-    }
-
-    }
