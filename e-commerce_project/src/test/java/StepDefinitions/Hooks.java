@@ -1,6 +1,6 @@
 package StepDefinitions;
 
-import PageObjects.HomePage;
+
 import io.cucumber.java.After;
 import io.cucumber.java.AfterAll;
 import io.cucumber.java.Before;
@@ -22,6 +22,7 @@ public class Hooks {
     @Before
     public void before(){
         System.out.println("I am running before each scenario");
+        driver.manage().deleteAllCookies();
 
     }
 

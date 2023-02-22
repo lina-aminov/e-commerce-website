@@ -43,7 +43,13 @@ abstract class BasePage {
         int range = max - min + 1;
         return (int) (Math.random() * range) + min;
     }
-    public void waitUntilStale(WebElement element){
+
+    void findAndType(By elementSelector, String inputString) {
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(elementSelector));
+        element.sendKeys(inputString);
+    }
+
+    public void waitUntilStale(WebElement element) {
         wait.until(ExpectedConditions.stalenessOf(element));
     }
 

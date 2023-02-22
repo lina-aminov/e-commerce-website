@@ -17,6 +17,9 @@ public class RegistrationPage extends BasePage {
 
 
     private static final By FULL_NAME_HEADER = By.xpath("//a[@class='account']/span");
+    private static final By INVALID_NAME_MESSAGE = By.cssSelector(".alert.alert-danger");
+    private static final By INVALID_EMAIL_FORMAT_MESSAGE = By.cssSelector(".alert.alert-danger");
+    private static final By ALREADY_REGISTERED_MESSAGE = By.cssSelector(".alert.alert-danger");
 
 
     public void enterAccountDetails(DataTable accountDetails) {
@@ -38,8 +41,19 @@ public class RegistrationPage extends BasePage {
     }
 
     public String getFullName() {
-        String headerText = driver.findElement(FULL_NAME_HEADER).getText();
-        return headerText;
+        return driver.findElement(FULL_NAME_HEADER).getText();
     }
 
+    public String getInvalidNameMessage() {
+        return driver.findElement(INVALID_NAME_MESSAGE).getText();
+    }
+
+    public String getInvalidFormatMessage() {
+        return driver.findElement(INVALID_EMAIL_FORMAT_MESSAGE).getText();
+    }
+
+    public String getAlreadyRegisteredMessage() {
+        return driver.findElement(ALREADY_REGISTERED_MESSAGE).getText();
+    }
 }
+
