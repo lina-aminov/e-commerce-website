@@ -8,12 +8,12 @@ import static org.junit.Assert.assertTrue;
 
 public class HomePage extends BasePage {
 
-    private By PRODUCT_ADDED_CONFIRMATION = By.xpath("//h4[contains(text(), 'Product successfully added to your shopping cart')]");
-    private By ADD_TO_CART = By.xpath("//button[@class='btn btn-primary add-to-cart']");
+    private static final By PRODUCT_ADDED_CONFIRMATION = By.xpath("//h4[contains(text(), 'Product successfully added to your shopping cart')]");
+    private static final By ADD_TO_CART = By.xpath("//button[@class='btn btn-primary add-to-cart']");
 
-    private By CHECKOUT_BUTTON = By.cssSelector("div.cart-content-btn a.btn-primary");
+    private static final By CHECKOUT_BUTTON = By.cssSelector("div.cart-content-btn a.btn-primary");
 
-    private By BLOUSE_LINK = By.xpath("//a[contains(@href, 'rewrite=blouse')]");
+    private static final By BLOUSE_LINK = By.xpath("//a[contains(@href, 'rewrite=blouse')]");
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -59,5 +59,5 @@ public class HomePage extends BasePage {
         WebElement signUpLink = driver.findElement(By.xpath("//a[contains(@href,'authentication')]"));
         signUpLink.click();
     }
-    
+
 }
