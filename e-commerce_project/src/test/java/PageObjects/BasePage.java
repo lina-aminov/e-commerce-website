@@ -1,6 +1,6 @@
 package PageObjects;
 
-
+import io.cucumber.core.internal.com.fasterxml.jackson.databind.ser.Serializers;
 import org.openqa.selenium.By;
 import io.cucumber.core.internal.com.fasterxml.jackson.databind.ser.Serializers;
 import org.openqa.selenium.By;
@@ -15,7 +15,7 @@ abstract class BasePage {
     WebDriver driver;
     WebDriverWait wait;
 
-    BasePage(WebDriver driver) {
+    BasePage(WebDriver driver){
         this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
@@ -23,9 +23,16 @@ abstract class BasePage {
     public void waitAndClick(By selector) {
         wait.until(ExpectedConditions.elementToBeClickable(selector)).click();
     }
-
     public WebElement waitUntilVisible(By selector) {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(selector));
+    }
+
+    public void waitAndClickForStale(By selector) {
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(selector));
+        element.click();
+        wait.until(ExpectedConditions.stalenessOf(element));
+
+
     }
 
     public void inputText(By locator, String text) {
