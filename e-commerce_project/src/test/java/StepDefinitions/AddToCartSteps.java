@@ -5,6 +5,8 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.Select;
 
 import static StepDefinitions.Hooks.driver;
 
@@ -40,10 +42,5 @@ public class AddToCartSteps {
     public void checkOutPageConfirmation() {
         homePage.checkOutPageConfirmation();
     }
-
-
-
-
-
 
 }
