@@ -13,7 +13,7 @@ abstract class BasePage {
     WebDriver driver;
     WebDriverWait wait;
 
-    BasePage(WebDriver driver) {
+    BasePage(WebDriver driver){
         this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
@@ -21,7 +21,6 @@ abstract class BasePage {
     public void waitAndClick(By selector) {
         wait.until(ExpectedConditions.elementToBeClickable(selector)).click();
     }
-
     public WebElement waitUntilVisible(By selector) {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(selector));
     }
@@ -34,5 +33,23 @@ abstract class BasePage {
 
     }
 
+    public void inputText(By locator, String text) {
+        WebElement inputField = driver.findElement(locator);
+        inputField.clear();
+        if (text.equals("UNIQUE_EMAIL")) {
+            text = "registrationemail" + getRandomNumber() + "@test" + getRandomNumber() + ".com";
+        }
+        inputField.sendKeys(text);
+    }
 
+    public int getRandomNumber() {
+        int min = 1;
+        int max = 100000;
+        int range = max - min + 1;
+        return (int) (Math.random() * range) + min;
+    }
+    void findAndType(By elementSelector, String inputString) {
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(elementSelector));
+        element.sendKeys(inputString);
+    }
 }
