@@ -43,7 +43,7 @@ public class CartPage extends BasePage {
 
     public void clickOnDownButton(int quantity) {
         logger.info("Click on down button");
-        for (int i = 0; i <= 1; i++) {
+        for (int i = 1; i <= quantity; i++) {
             //click the button
             driver.findElement(QUANTITY_ITEM_DOWN);
             waitAndClick(QUANTITY_ITEM_DOWN);

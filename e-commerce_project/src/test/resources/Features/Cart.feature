@@ -40,6 +40,7 @@ Feature: Cart functionality (UI)
       | 999999 |
       | 248    |
       | 249    |
+      | -1     |
 
 
 

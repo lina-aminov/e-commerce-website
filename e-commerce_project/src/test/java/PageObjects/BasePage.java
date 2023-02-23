@@ -45,8 +45,6 @@ abstract class BasePage {
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(selector));
         element.click();
         wait.until(ExpectedConditions.stalenessOf(element));
-
-
    }
 
    public WebElement waitUntilClickable(By selector){
