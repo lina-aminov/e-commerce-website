@@ -35,11 +35,11 @@ Feature: Cart functionality (UI)
     Then I should see as 248 max value
     Examples:
       | num1   |
-      | -1     |
       | 177    |
       | 999999 |
       | 248    |
       | 249    |
+      | -1     |
 
 
 

@@ -45,8 +45,10 @@ abstract class BasePage {
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(selector));
         element.click();
         wait.until(ExpectedConditions.stalenessOf(element));
+   }
 
-
+   public WebElement waitUntilClickable(By selector){
+      return wait.until(ExpectedConditions.elementToBeClickable(selector));
    }
 
     public int getRandomNumber() {
@@ -63,10 +65,8 @@ abstract class BasePage {
         element.sendKeys(inputString);
     }
 
-    public void waitUntilStale(WebElement selector) {
+    public void waitUntilStale(WebElement element) {
         logger.info("Wait until Stale");
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(selector));
-        element.click();
         wait.until(ExpectedConditions.stalenessOf(element));
     }
 
