@@ -40,6 +40,14 @@ abstract class BasePage {
         }
         inputField.sendKeys(text);
     }
+        public void waitAndClickForStale(By selector) {
+        logger.info("Wait and click for stale");
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(selector));
+        element.click();
+        wait.until(ExpectedConditions.stalenessOf(element));
+
+
+   }
 
     public int getRandomNumber() {
         logger.info("get random number");
