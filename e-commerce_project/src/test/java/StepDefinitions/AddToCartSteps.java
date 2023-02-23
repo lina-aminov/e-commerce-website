@@ -19,6 +19,7 @@ public class AddToCartSteps {
     @Given("I'm on the home Page")
     public void iMOnTheHomePage() {
         homePage.goToHomePage();
+
     }
 
     @When("I click on a product")
