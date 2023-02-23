@@ -16,7 +16,6 @@ public class SubscribeForNewsletterStepDef {
     RegistrationPage registrationPage;
     SubscribeForNewsletterPage subscribeForNewsletterPage;
 
-
     public SubscribeForNewsletterStepDef() {
         homePage = new HomePage(driver);
         registrationPage = new RegistrationPage(driver);
@@ -28,7 +27,6 @@ public class SubscribeForNewsletterStepDef {
         subscribeForNewsletterPage.enterEmailToSubscriptionField(email);
         subscribeForNewsletterPage.clickSubscribeButton();
     }
-
 
 
     @Then("The message: {string} is visible")

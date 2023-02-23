@@ -26,7 +26,6 @@ public class RegistrationStepDef {
     @When("I click Sign In button")
     public void iClickSignInButton() {
         homePage.clickSignIn();
-
     }
 
     @And("I click the sign up link")
@@ -46,13 +45,12 @@ public class RegistrationStepDef {
 
     @Then("I am redirected to the home page with the name: {string} visible")
     public void iAmRedirectedToTheHomePageWithTheNameVisible(String fullName) {
-         assert fullName.equals(registrationPage.getFullName());
+        assert fullName.equals(registrationPage.getFullName());
     }
 
     @Then("I am see the error message {string}")
     public void invalidName(String invalidName) {
         Assert.assertEquals(invalidName, registrationPage.getInvalidNameMessage());
-
     }
 
     @Then("the error message {string} is visible")

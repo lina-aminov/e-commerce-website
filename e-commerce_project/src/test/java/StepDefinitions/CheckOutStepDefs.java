@@ -10,23 +10,17 @@ import org.openqa.selenium.support.ui.Select;
 import static StepDefinitions.Hooks.driver;
 
 public class CheckOutStepDefs {
-    CheckoutPage checkoutPage;
 
+    CheckoutPage checkoutPage;
 
     public CheckOutStepDefs() {
         checkoutPage = new CheckoutPage(driver);
     }
 
-
     @When("I am on the Checkout Page")
     public void iAmOnTheCheckoutPage() {
         checkoutPage = new CheckoutPage(driver);
-
-
     }
-
-
-
 
     @And("I click on Shipping method")
     public void iClickOnShippingMethod() {
@@ -37,7 +31,6 @@ public class CheckOutStepDefs {
     public void iEnterPaymentDetailsByBANKWIRE() {
         driver.findElement(By.cssSelector("#payment-option-2")).click();
         driver.findElement(By.cssSelector("input[name=\"conditions_to_approve[terms-and-conditions]\"]")).click();
-
     }
 
     @Then("I click on Order to Pay")
@@ -55,26 +48,19 @@ public class CheckOutStepDefs {
         checkoutPage.enterFirstName(firstname);
         checkoutPage.enterLastName(lastname);
         checkoutPage.enterEmail(email);
-
         driver.findElement(By.cssSelector("button[name=continue]")).click();
     }
 
     @And("I enter my address {string} city {string} zipcode {string}")
     public void iEnterMyAddressCityZipcode(String address, String city, String zipcode) {
-            checkoutPage.enterAddress(address);
-            checkoutPage.enterCity(city);
+        checkoutPage.enterAddress(address);
+        checkoutPage.enterCity(city);
         Select drpState = new Select(driver.findElement(By.name("id_state")));
         drpState.selectByVisibleText("Delaware");
-            checkoutPage.enterZipCode(zipcode);
-
-            driver.findElement(By.cssSelector("button[name=confirm-addresses]")).click();
-        }
-
-    @Then("Website says incorrect zipcode format")
-    public void websiteSaysIncorrectZipcodeFormat()  {
-
-
+        checkoutPage.enterZipCode(zipcode);
+        driver.findElement(By.cssSelector("button[name=confirm-addresses]")).click();
     }
+
 }
 
 

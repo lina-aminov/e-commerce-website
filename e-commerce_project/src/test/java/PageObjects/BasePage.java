@@ -1,10 +1,7 @@
 package PageObjects;
 
-import io.cucumber.core.internal.com.fasterxml.jackson.databind.ser.Serializers;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.By;
-import io.cucumber.core.internal.com.fasterxml.jackson.databind.ser.Serializers;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,7 +11,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 abstract class BasePage {
+
     private static final Logger logger = LogManager.getLogger(BasePage.class);
+
     WebDriver driver;
     WebDriverWait wait;
 
@@ -31,15 +30,6 @@ abstract class BasePage {
         logger.info("Wait until visible");
         return wait.until(ExpectedConditions.visibilityOfElementLocated(selector));
     }
-
-//    public void waitAndClickForStale(By selector) {
-//        logger.info("Wait and click for stale");
-//        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(selector));
-//        element.click();
-//        wait.until(ExpectedConditions.stalenessOf(element));
-//
-//
-//    }
 
     public void inputText(By locator, String text) {
         logger.info("Input text email");

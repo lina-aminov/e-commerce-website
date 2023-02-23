@@ -7,13 +7,16 @@ import io.cucumber.java.en.When;
 
 import static StepDefinitions.Hooks.driver;
 
-public class ChangeProductQuantitydefs {
+public class ChangeProductQuantityDefs {
+
     HomePage homePage;
     CartPage cartPage;
-    public ChangeProductQuantitydefs() {
+
+    public ChangeProductQuantityDefs() {
         homePage = new HomePage(driver);
         cartPage = new CartPage(driver);
     }
+
     @When("I click {int} times on change quantity button")
     public void iClickOnChangeQuantityButton(int clicks) {
         homePage.clickChangeQuantityHomePage(clicks);
