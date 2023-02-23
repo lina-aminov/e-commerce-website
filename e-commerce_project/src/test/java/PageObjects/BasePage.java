@@ -49,6 +49,10 @@ abstract class BasePage {
 
    }
 
+   public WebElement waitUntilClickable(By selector){
+      return wait.until(ExpectedConditions.elementToBeClickable(selector));
+   }
+
     public int getRandomNumber() {
         logger.info("get random number");
         int min = 1;
