@@ -46,7 +46,7 @@ public class CartPage extends BasePage {
         for (int i = 1; i <= quantity; i++) {
             //click the button
             driver.findElement(QUANTITY_ITEM_DOWN);
-            waitAndClick(QUANTITY_ITEM_DOWN);
+            waitAndClickForStale(QUANTITY_ITEM_DOWN);
         }
     }
 
@@ -58,7 +58,8 @@ public class CartPage extends BasePage {
 
     public void addManuallyQuantity(int num) {
         logger.info("Add manually quantity");
-        WebElement element = driver.findElement(QUANTITY_FIELD);
+
+        WebElement element = waitUntilClickable(QUANTITY_FIELD);
         element.sendKeys(Keys.HOME, Keys.chord(Keys.SHIFT, Keys.END), Integer.toString(num));
         //quantity field requires clicking off-input
         waitAndClick(PRODUCT_PRICE);
