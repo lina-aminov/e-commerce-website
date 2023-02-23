@@ -9,9 +9,9 @@ import io.cucumber.java.en.When;
 import static StepDefinitions.Hooks.driver;
 
 public class CartSteps {
+
     HomePage homePage;
     CartPage cartPage;
-
 
     public CartSteps() {
         homePage = new HomePage(driver);
@@ -28,7 +28,6 @@ public class CartSteps {
         cartPage.checkEmptyCartMSG(message);
     }
 
-
     @And("I change the quantity from {int} to {int}")
     public void iChangeTheQuantityFromTo(int quantity, int newQuantity) {
     }
@@ -36,7 +35,6 @@ public class CartSteps {
     @Then("I see the changed {int} items quantity")
     public void iSeeTheChangedItemQuantity(int quantity) {
         cartPage.checkItemQuantity(quantity);
-
     }
 
     @When("^I am adding manually (-?\\d+) items into the cart$")
@@ -52,7 +50,6 @@ public class CartSteps {
     @Then("I should see as {int} max value")
     public void iShouldSeeInvalidInput(int value) {
         cartPage.addManuallyQuantity(value);
-
     }
 
     @When("I am clicking {int} times on up button")
@@ -64,6 +61,5 @@ public class CartSteps {
     public void iClickOnDownButton(int quantity) {
         cartPage.clickOnDownButton(quantity);
     }
-
 
 }

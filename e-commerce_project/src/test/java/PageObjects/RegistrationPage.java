@@ -10,20 +10,17 @@ import org.openqa.selenium.WebElement;
 
 import java.util.Map;
 
-
 public class RegistrationPage extends BasePage {
     private static final Logger logger = LogManager.getLogger(RegistrationPage.class);
-
-    public RegistrationPage(WebDriver driver) {
-        super(driver);
-    }
-
 
     private static final By FULL_NAME_HEADER = By.xpath("//a[@class='account']/span");
     private static final By INVALID_NAME_MESSAGE = By.cssSelector(".alert.alert-danger");
     private static final By INVALID_EMAIL_FORMAT_MESSAGE = By.cssSelector(".alert.alert-danger");
     private static final By ALREADY_REGISTERED_MESSAGE = By.cssSelector(".alert.alert-danger");
 
+    public RegistrationPage(WebDriver driver) {
+        super(driver);
+    }
 
     public void enterAccountDetails(DataTable accountDetails) {
         logger.info("Enter account details");

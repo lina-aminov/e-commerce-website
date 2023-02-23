@@ -12,14 +12,11 @@ import static org.junit.Assert.assertTrue;
 public class HomePage extends BasePage {
     private static final Logger logger = LogManager.getLogger(HomePage.class);
 
-    private static final By PRODUCT_ADDED_CONFIRMATION = By.xpath("//h4[contains(text(), 'Product successfully added to your shopping cart')]");
-    private static final By ADD_TO_CART = By.xpath("//button[@class='btn btn-primary add-to-cart']");
-
-    private static final By CHECKOUT_BUTTON = By.cssSelector("div.cart-content-btn a.btn-primary");
-
-    private static final By BLOUSE_LINK = By.xpath("//a[contains(@href, 'rewrite=blouse')]");
+    private final By PRODUCT_ADDED_CONFIRMATION = By.xpath("//h4[contains(text(), 'Product successfully added to your shopping cart')]");
+    private final By ADD_TO_CART = By.xpath("//button[@class='btn btn-primary add-to-cart']");
+    private final By CHECKOUT_BUTTON = By.cssSelector("div.cart-content-btn a.btn-primary");
+    private final By BLOUSE_LINK = By.xpath("//a[contains(@href, 'rewrite=blouse')]");
     private static final By PRODUCT = By.xpath("//img[@alt='Printed Dress']");
-
     private static final By QUANTITY_ITEM_UP = By.xpath("//button[@type ='button']//i[@class='material-icons touchspin-up']");
     private static final By INPUT_QUANTITY_BOX = By.xpath("//input[@name='qty']");
 
@@ -48,7 +45,6 @@ public class HomePage extends BasePage {
         logger.info("Product added confirmation");
         WebElement addedConfirmation = driver.findElement(PRODUCT_ADDED_CONFIRMATION);
         assertTrue(addedConfirmation.isDisplayed());
-
     }
 
     public void clickProceedToCheckout() {
@@ -60,29 +56,27 @@ public class HomePage extends BasePage {
         logger.info("Checkout page confirmation");
         WebElement addedConfirmation = driver.findElement(BLOUSE_LINK);
         assertTrue(addedConfirmation.isDisplayed());
-
     }
+
     public void clickOnThirdProduct(int model) {
         logger.info("Click on third");
         WebElement element = driver.findElement(PRODUCT);
         element.click();
-
     }
 
     public void clickChangeQuantityHomePage(int clicks) {
         logger.info("Click change quantity");
-        for (int i = 0; i <= 9; i++){
+        for (int i = 0; i <= 9; i++) {
             //click the button
-             driver.findElement(QUANTITY_ITEM_UP).click();
+            driver.findElement(QUANTITY_ITEM_UP).click();
         }
     }
+
     public void addingProductQuantity(int product) {
         logger.info("Adding product quantity");
         String element = driver.findElement(INPUT_QUANTITY_BOX).getAttribute("value");
         Assertions.assertEquals(Integer.toString(product), element);
-
     }
-
 
     public void clickSignIn() {
         logger.info("Click sign in");
@@ -95,5 +89,5 @@ public class HomePage extends BasePage {
         WebElement signUpLink = driver.findElement(By.xpath("//a[contains(@href,'authentication')]"));
         signUpLink.click();
     }
-    
+
 }

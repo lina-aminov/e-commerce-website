@@ -8,10 +8,12 @@
     <artifactId>e-commerce_project</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
+
     <dependencies>
         <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
         <dependency>
@@ -55,11 +57,30 @@
             <artifactId>gherkin</artifactId>
             <version>26.0.3</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
+        <dependency>
+            <groupId>com.aventstack</groupId>
+            <artifactId>extentreports</artifactId>
+            <version>5.0.9</version>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
             <version>2.20.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-text -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-text</artifactId>
+            <version>1.10.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/tech.grasshopper/extentreports-cucumber7-adapter -->
+        <dependency>
+            <groupId>tech.grasshopper</groupId>
+            <artifactId>extentreports-cucumber7-adapter</artifactId>
+            <version>1.10.1</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
         <dependency>
@@ -67,7 +88,34 @@
             <artifactId>log4j-api</artifactId>
             <version>2.20.0</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.trivago.rta/cluecumber-core -->
+        <dependency>
+            <groupId>com.trivago.rta</groupId>
+            <artifactId>cluecumber-core</artifactId>
+            <version>3.1.0</version>
+        </dependency>
 
     </dependencies>
-
+<build>
+    <plugins>
+    <plugin>
+        <groupId>com.trivago.rta</groupId>
+        <artifactId>cluecumber-maven</artifactId>
+        <version>3.1.0</version>
+        <executions>
+            <execution>
+                <id>report</id>
+                <phase>post-integration-test</phase>
+                <goals>
+                    <goal>reporting</goal>
+                </goals>
+            </execution>
+        </executions>
+        <configuration>
+            <sourceJsonReportDirectory>${project.build.directory}/cucumber-report</sourceJsonReportDirectory>
+            <generatedHtmlReportDirectory>${project.build.directory}/generated-report</generatedHtmlReportDirectory>
+        </configuration>
+    </plugin>
+    </plugins>
+</build>
 </project>

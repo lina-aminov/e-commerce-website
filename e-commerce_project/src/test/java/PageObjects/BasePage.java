@@ -1,6 +1,5 @@
 package PageObjects;
 
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
@@ -12,7 +11,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 abstract class BasePage {
+
     private static final Logger logger = LogManager.getLogger(BasePage.class);
+
     WebDriver driver;
     WebDriverWait wait;
 
@@ -28,15 +29,6 @@ abstract class BasePage {
     public WebElement waitUntilVisible(By selector) {
         logger.info("Wait until visible");
         return wait.until(ExpectedConditions.visibilityOfElementLocated(selector));
-    }
-
-    public void waitAndClickForStale(By selector) {
-        logger.info("Wait and click for stale");
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(selector));
-        element.click();
-        wait.until(ExpectedConditions.stalenessOf(element));
-
-
     }
 
     public void inputText(By locator, String text) {
@@ -63,8 +55,10 @@ abstract class BasePage {
         element.sendKeys(inputString);
     }
 
-    public void waitUntilStale(WebElement element) {
+    public void waitUntilStale(WebElement selector) {
         logger.info("Wait until Stale");
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(selector));
+        element.click();
         wait.until(ExpectedConditions.stalenessOf(element));
     }
 
