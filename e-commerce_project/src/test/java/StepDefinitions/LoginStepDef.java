@@ -23,7 +23,6 @@ public class LoginStepDef {
         loginPage = new LoginPage(driver);
     }
 
-
     @When("click the Sign In button")
     public void clickTheSignInButton() {
         loginPage.clickSignInButton();

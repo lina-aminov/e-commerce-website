@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 public class AllProductsPage extends BasePage {
+
     private static final Logger logger = LogManager.getLogger(AllProductsPage.class);
 
     private static final By ALL_PRODUCTS_BTN = By.xpath("//a[contains(@href,'category=2&controller=category')]");
@@ -35,7 +36,6 @@ public class AllProductsPage extends BasePage {
         waitUntilStale(filter);
     }
 
-
     public void chooseFilters(DataTable filters) {
         logger.info("Map filters");
         Map<String, String> filtersMap = filters.asMap();
@@ -44,7 +44,6 @@ public class AllProductsPage extends BasePage {
             expectedFilters.add(entry.getKey() + ": " + entry.getValue() + "\n" +
                     "\uE5CD");
         }
-
     }
 
     public void checkFiltersDisplayed() {
