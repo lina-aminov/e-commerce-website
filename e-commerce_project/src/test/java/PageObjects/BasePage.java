@@ -32,14 +32,14 @@ abstract class BasePage {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(selector));
     }
 
-    public void waitAndClickForStale(By selector) {
-        logger.info("Wait and click for stale");
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(selector));
-        element.click();
-        wait.until(ExpectedConditions.stalenessOf(element));
-
-
-    }
+//    public void waitAndClickForStale(By selector) {
+//        logger.info("Wait and click for stale");
+//        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(selector));
+//        element.click();
+//        wait.until(ExpectedConditions.stalenessOf(element));
+//
+//
+//    }
 
     public void inputText(By locator, String text) {
         logger.info("Input text email");
@@ -65,8 +65,10 @@ abstract class BasePage {
         element.sendKeys(inputString);
     }
 
-    public void waitUntilStale(WebElement element) {
+    public void waitUntilStale(WebElement selector) {
         logger.info("Wait until Stale");
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(selector));
+        element.click();
         wait.until(ExpectedConditions.stalenessOf(element));
     }
 
