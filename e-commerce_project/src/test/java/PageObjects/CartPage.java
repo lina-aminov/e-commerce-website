@@ -36,8 +36,7 @@ public class CartPage extends BasePage {
         logger.info("Click change quantity");
         for (int i = 1; i <= quantity; i++) {
             //click the button
-            WebElement element = driver.findElement(By.xpath("//button[@type ='button']//i[@class='material-icons touchspin-up']"));
-          waitUntilStale(element);
+            waitAndClickForStale(QUANTITY_ITEM_UP);
 
         }
     }
