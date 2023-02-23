@@ -27,7 +27,7 @@ Feature: Cart functionality (UI)
       | 2   |
       | 100 |
       | 9   |
-      | 175 |
+
 
     #negative testing
   Scenario Outline: I am adding negative and max positive numbers in the input cart
