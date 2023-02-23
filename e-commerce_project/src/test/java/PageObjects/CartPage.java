@@ -62,7 +62,11 @@ public class CartPage extends BasePage {
         WebElement element = waitUntilClickable(QUANTITY_FIELD);
         element.sendKeys(Keys.HOME, Keys.chord(Keys.SHIFT, Keys.END), Integer.toString(num));
         //quantity field requires clicking off-input
-        waitAndClick(PRODUCT_PRICE);
+        if(num<0){
+            waitAndClick(PRODUCT_PRICE);
+        } else {
+            waitAndClickForStale(PRODUCT_PRICE);
+        }
     }
 
 }
